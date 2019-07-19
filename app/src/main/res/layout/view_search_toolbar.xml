@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_vertical"
+              android:background="@color/colorPrimary"
+              android:minHeight="?attr/actionBarSize">
+
+    <ImageButton
+            android:id="@+id/search_toolbar_back"
+            android:layout_width="@dimen/toolbar_action_size"
+            android:layout_height="@dimen/toolbar_action_size"
+            android:contentDescription="@string/back"
+            app:srcCompat="@drawable/ic_back"
+            android:visibility="invisible"/>
+
+    <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        <EditText
+                android:id="@+id/search_edit_text"
+                android:lines="1"
+                android:autofillHints="@string/leeroy"
+                android:text="@string/leeroy"
+                android:hint="@string/leeroy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionSearch"
+                android:inputType="textNoSuggestions"
+                android:textColor="@android:color/white"
+                android:visibility="invisible"
+                tools:targetApi="o"/>
+
+        <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|start"
+                android:textColor="@android:color/white"
+                tools:text="@string/app_name"/>
+
+    </FrameLayout>
+
+    <ImageButton
+            android:id="@+id/toolbar_search"
+            android:layout_width="@dimen/toolbar_action_size"
+            android:layout_height="@dimen/toolbar_action_size"
+            android:contentDescription="@string/search"
+            app:srcCompat="@drawable/ic_search"/>
+
+</LinearLayout>

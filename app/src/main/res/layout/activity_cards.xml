@@ -13,8 +13,10 @@
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
 
-        <androidx.appcompat.widget.Toolbar
+        <david.hosseini.hearthstone.widget.SearchToolbar
                 android:id="@+id/toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/AppTheme.PopupOverlay"/>
@@ -30,7 +32,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/recycler_cards"
-                app:layoutManager="LinearLayoutManager"
                 tools:listitem="@layout/item_card"/>
 
     </FrameLayout>
