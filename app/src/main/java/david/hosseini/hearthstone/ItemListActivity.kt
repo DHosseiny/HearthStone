@@ -5,22 +5,30 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import david.hosseini.hearthstone.App.Companion.app
 import david.hosseini.hearthstone.widget.SearchListener
 import kotlinx.android.synthetic.main.activity_cards.*
+import javax.inject.Inject
 
 
 class ItemListActivity : AppCompatActivity(), SearchListener {
 
 
     private val adapter = CardsAdapter()
-    lateinit var viewModel: ItemsListViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private lateinit var viewModel: ItemsListViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cards)
 
-        viewModel = ViewModelProviders.of(this).get(ItemsListViewModel::class.java)
+        app.appComponent.injectItemListActivity(this)
+
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
+            .get(ItemsListViewModel::class.java)
 
         observeViewModel(viewModel)
 
