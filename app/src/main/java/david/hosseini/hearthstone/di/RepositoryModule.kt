@@ -12,7 +12,6 @@ class RepositoryModule {
 
     //not used constructor injection because we will extend this class to inject a mock repository for testing
     @Provides
-    fun provideCardRepository(hearthstoneApi: HearthstoneApi): CardRepository {
-        return CardRepository(hearthstoneApi)
-    }
+    fun provideCardRepository(hearthstoneApi: HearthstoneApi) = CardRepository(hearthstoneApi)
+
 }
